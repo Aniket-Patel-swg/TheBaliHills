@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import styles from "../styles/Home.module.css";
+import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -104,10 +105,10 @@ export default function Home() {
     <>
       <section className={styles.navbar}>
         <h1 ref={btnH1Ref}>
-          <a href="/">The Bali Hills</a>
+          <Link href="/">The Bali Hills</Link>
         </h1>
         <p ref={btnPRef}>
-          <a href="/">Contact Us</a>
+          <Link href="/">Contact Us</Link>
         </p>
       </section>
       <div className={styles.homepage}>
