@@ -5,6 +5,8 @@ body {
   margin: 0;
   font-family: "Raleway", "Playfair Display SC", "Qwitcher Grypen", sans-serif;
   background-color: #002d2f;
+  color: #f1e0ce;
+  overflow-x: hidden;
 }
 * {
   box-sizing: border-box;

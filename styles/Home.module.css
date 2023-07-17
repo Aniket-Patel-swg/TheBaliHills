@@ -37,10 +37,6 @@
   width: 100%;
   margin-top: 1.4in;
 }
-.image_wrapper{
-  overflow-y: hidden;
-}
-
 @media (max-width: 1500px) {
   .homepage{
     margin: 0px;

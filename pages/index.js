@@ -3,6 +3,7 @@ import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import Location from "../Components/Location";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
@@ -76,30 +77,30 @@ export default function Home() {
     );
   }, []);
 
-  useEffect(() => {
-    let proxy = { skew: 10 },
-      skewSetter = gsap.quickSetter(imgRef.current, "skewY", "deg"),
-      clamp = gsap.utils.clamp(-5, 5); // don't let the skew go beyond 5 degrees.
+  // useEffect(() => {
+  //   let proxy = { skew: 5 },
+  //     skewSetter = gsap.quickSetter(imgRef.current, "skewY", "deg"),
+  //     clamp = gsap.utils.clamp(-5, 5); // don't let the skew go beyond 5 degrees.
 
-    ScrollTrigger.create({
-      trigger: imgRef.current,
-      onUpdate: (self) => {
-        // console.log("vel", self.getVelocity()) // fater we scroll fater the velocity, so that we can use it to change the skew
-        let skew = clamp(self.getVelocity());
+  //   ScrollTrigger.create({
+  //     trigger: imgRef.current,
+  //     onUpdate: (self) => {
+  //       // console.log("vel", self.getVelocity()) // fater we scroll fater the velocity, so that we can use it to change the skew
+  //       let skew = clamp(self.getVelocity());
 
-        if (Math.abs(skew) > Math.abs(proxy.skew) / -300) {
-          proxy.skew = skew;
-          gsap.to(proxy, {
-            skew: 0,
-            duration: 1,
-            ease: "power3",
-            overwrite: true,
-            onUpdate: () => skewSetter(proxy.skew),
-          });
-        }
-      },
-    });
-  });
+  //       if (Math.abs(skew) > Math.abs(proxy.skew) / -300) {
+  //         proxy.skew = skew;
+  //         gsap.to(proxy, {
+  //           skew: 0,
+  //           duration: 1,
+  //           ease: "power3",
+  //           overwrite: true,
+  //           onUpdate: () => skewSetter(proxy.skew),
+  //         });
+  //       }
+  //     },
+  //   });
+  // });
 
   return (
     <>
@@ -125,8 +126,8 @@ export default function Home() {
           </section>
         </section>
         <section className={styles.image_wrapper}><img ref={imgRef} src="/Images/Hero.jpg" alt="" /></section>
-        
       </div>
+      <Location />
     </>
   );
 }
